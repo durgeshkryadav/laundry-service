@@ -10,4 +10,4 @@ const demoShema = new mongoose.Schema({
     createdDate: { type: Date, default: Date.now }
 })
 
-module.exports = mongoose.model("order", demoShema)
+module.exports = mongoose.model("demoOrder", demoShema)
