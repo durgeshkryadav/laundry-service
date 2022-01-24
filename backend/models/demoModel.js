@@ -7,6 +7,11 @@ const demoShema = new mongoose.Schema({
     price: {
         type: Number
     },
+    user: {
+        type: mongoose.Types.ObjectId,
+        ref: "User"
+    },
+
     createdDate: { type: Date, default: Date.now }
 })
 

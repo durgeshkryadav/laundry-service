@@ -1,7 +1,7 @@
 const Order = require("../models/demoModel");
 
 // create product
-exports.createProduct = async (req, res, next) => {
+exports.createDemoOrder = async (req, res, next) => {
 
     const demoOrder = await Order.create(req.body);
 
