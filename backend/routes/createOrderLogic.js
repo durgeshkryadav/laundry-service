@@ -1,5 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+
+const app = express();
+app.use(bodyParser);
 const Order = require("../models/createOrder");
 
 const router = express.Router();
@@ -15,8 +19,9 @@ router.get('/orders', async (req, res)=>{
         });
     }
     catch(e){
-        res.json({status: 'failed',
-        message: e.message
+        res.status(500).json({
+            status: 'failed',
+            message: e.message
         });
     };
 });
@@ -24,39 +29,24 @@ router.get('/orders', async (req, res)=>{
 // --    Post api for creating order -----------------------------------------------------------
 
 router.post('/orders', async(req, res)=>{
-    const order_data = req.body.order_details;
-    let order_price = 0;
-    let order_quantity = 0;
-    order_data.forEach((detail)=>{
-        let tot = 0
-        if(detail.wash){
-            tot += detail.quantity * 20
-        }
-        if(detail.iron){
-            tot += detail.quantity * 15
-        }
-        if(detail.fold){
-            tot += detail.quantity * 10
-        }
-        if(detail.bleech){
-            tot += detail.quantity * 25
-        }
-        detail['order_price'] = tot,
-        order_price += tot,
-        order_quantity += parseInt(detail.quantity)
-    });
-    const {address, order_status} = req.body;
-    const order = await Order.create({
-        order_id: 'ORD0001',
-        order_details: order_data,
-        total_quantity: order_quantity,
-        total_price: order_price,
-        order_status,
-        address
-    });
-    res.json({
-        status: 'Success'
-    });
+    try{
+
+        const { totalquantity, totalprice, orderdetails, orderstatus } = req.body;
+        const Orders = await Items.create({
+            totalquantity,
+            totalprice,
+            orderdetails,
+            user: req.user,
+        });
+        res.json({
+            status: 'Success'
+        });
+    }catch(e){
+        res.status(500).json({
+            status: "creation failed",
+            message: e.message
+        });
+    }
 });
 
 // ------------------------------------------------------------------------------------------------

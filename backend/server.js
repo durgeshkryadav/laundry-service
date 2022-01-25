@@ -1,8 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const bodyParser = require("body-parser");
 const {mongo_url} = require('./config/db');
 const app = express();
+app.use(bodyParser());
+app.use(cors());
 
 // mongoose connection  ------------------------------------------------
 
@@ -19,7 +22,6 @@ mongoose.connection.on('error',(err)=>{
 
 //      ------------------------------------------------------------------
 
-app.use(cors());
 require('./models/createOrder');
 app.use(express.json());
 
