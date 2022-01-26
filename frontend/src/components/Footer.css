@@ -1,0 +1,24 @@
+.footer-container {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    margin-top: 600px;
+    left: 0px;
+    height: 60px;
+    background: #182838 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    opacity: 1;
+}
+
+.footer-container p {
+    top: 899px;
+    left: 725px;
+    width: 44px;
+    height: 16px;
+    text-align: center;
+    font: normal normal normal 12px/24px Avenir;
+    letter-spacing: 0.12px;
+    color: #FFFFFF;
+    opacity: 1;
+}

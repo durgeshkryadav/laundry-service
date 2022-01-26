@@ -1,9 +1,14 @@
+import DisplayOrder from "./components/DisplayOrder";
 import './App.css';
+
+
 
 function App() {
   return (
     <>
-      <h1> Everything is Working</h1>
+
+      <DisplayOrder />
+
     </>
   );
 }
