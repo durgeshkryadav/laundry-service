@@ -1,0 +1,33 @@
+.table {
+    margin-top: 24px;
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+.table thead th {
+    padding: .4rem;
+    top: 172px;
+    left: 99px;
+    width: 1293px;
+    height: 35px;
+    background: #383737 0% 0% no-repeat padding-box;
+    border-radius: 3px 3px 0px 0px;
+    opacity: 1;
+    color: white;
+    font-weight: 500;
+}
+
+.table tbody tr td {
+    padding: 1rem 1.2rem;
+    text-align: center;
+}
+
+.table tbody tr td:nth-child(7) {
+    color: #4f5de0;
+    font-weight: 1000;
+}
+
+/* odd position row background color */
+.table tbody tr:nth-child(odd) {
+    background-color: #f0e9e9;
+}

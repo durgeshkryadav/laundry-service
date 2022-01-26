@@ -19,11 +19,12 @@
     left: 1059px;
     width: 107px;
     height: 32px;
-    border: 1px solid #5861AE;
+    border: 2px solid #5861AE;
     border-radius: 4px;
     opacity: 1;
     background-color: white;
     color: #5861AE;
+    font-weight: 600;
 }
 
 

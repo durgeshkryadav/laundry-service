@@ -4,5 +4,8 @@ const Order = require("../models/demoModel");
 exports.createDemoOrder = async (req, res, next) => {
 
     const demoOrder = await Order.create(req.body);
+    res.json({
+        demoOrder
+    })
 
 }

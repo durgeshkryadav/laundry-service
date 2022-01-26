@@ -1,6 +1,6 @@
 import React from 'react';
 import "./Header.css";
-// import img1 from "../img/sindre-aalberg-a671PFo5DYE-unsplash.jpg"
+import img1 from "../img/sindre-aalberg-a671PFo5DYE-unsplash.jpg"
 
 const Header = () => {
     return <div>
@@ -19,7 +19,7 @@ const Header = () => {
                     <p >Career</p>
                 </div>
                 <div className='parent-part1' id='id1'>
-                    {/* <img src={img1}></img> */}
+                    <img src={img1}></img>
                     <p>User Name</p>
                 </div>
 
