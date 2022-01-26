@@ -34,8 +34,9 @@ exports.orderDisplay1 = async (req, res, next) => {
 
     const userOrders = await Order.find({ "price": { $gt: 10000 } });
 
-    res.status(201).json({
-        succes: true,
-        userOrders
-    })
+    res.send(userOrders)
+    // res.status(201).json({
+    //     succes: true,
+    //     userOrders
+    // })
 }
