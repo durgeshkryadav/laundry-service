@@ -1,5 +1,11 @@
+.main {
+    /* padding: 20px; */
+    /* margin-right: 20px; */
+    /* margin-left: 86px; */
+}
+
 .table {
-    margin-top: 24px;
+    /* margin-top: 24px; */
     border-collapse: collapse;
     border-spacing: 0
 }
@@ -24,6 +30,11 @@
 
 .table tbody tr td:nth-child(7) {
     color: #4f5de0;
+    font-weight: 1000;
+}
+
+.table tbody tr td:nth-child(9) i {
+    color: lightcoral;
     font-weight: 1000;
 }
 

@@ -41,7 +41,7 @@ const createOrderSchema = new Schema({
     order_date: { type: Date, default: Date.now },
     store_location: { type: String, default: 'JP Nagar' },
     city: { type: String, default: "Bangalore" },
-    store_phone: { type: Number, default: "+91 7054392173" },
+    store_phone: { type: Number, default: "7054392173" },
     total_items: { type: Number },
     total_price: { type: Number },
     status: { type: String, default: 'Ready to pick up' },

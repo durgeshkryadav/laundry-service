@@ -3,7 +3,7 @@ import img2 from "../img/search.svg"
 import "./TopBody.css";
 
 const TopBody = () => {
-    return <div>
+    return <div className='main'>
         <div className='container'>
             <div className='right1'>
                 <h2>Orders | 0 </h2>
@@ -15,7 +15,6 @@ const TopBody = () => {
             <div className='right1'>
                 <img src={img2}></img>
                 <div className='right12'>
-
                 </div>
 
             </div>

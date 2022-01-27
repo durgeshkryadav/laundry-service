@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+
+import Summary from "./Summary";
 import "./Displayfn.css"
+
+// For route
+
 
 
 const Displayfn = () => {
     const [order, setOrder] = useState([])
-
 
     const getOrders = async () => {
         try {
@@ -22,18 +26,8 @@ const Displayfn = () => {
         getOrders()
     }, [])
 
-    // return <div>
-    //     <h1>Hii Its Ok</h1>
-    //     {order.map((i) => {
-    //         return <p>{i.name}</p>
-    //     })}
-    // </div>;
 
-
-
-
-
-    return <div>
+    return <div >
         <table className='table'>
             <thead>
                 <tr>
@@ -61,19 +55,13 @@ const Displayfn = () => {
                         <td>{i.total_items}</td>
                         <td>{i.total_price} Rs</td>
                         <td>{i.status}</td>
-                        <td></td>
-                        <td><i class="fa fa-eye"></i></td>
-
+                        <td><a href='!#'> <i>Cancel Order</i></a></td>
+                        <td><a href='!#'> <i className="fa fa-eye"></i> </a> </td>
                     </tr>
                 )}
             </tbody>
         </table>
     </div>
-
-
-
-
-
 
 };
 

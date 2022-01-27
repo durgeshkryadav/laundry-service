@@ -1,0 +1,136 @@
+.main {
+    margin-top: 0px;
+    margin-left: 514px;
+    width: 926px;
+    height: 933px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    top: 0px;
+    left: 514px;
+    width: 926px;
+    height: 70px;
+    background: #5861AE 0% 0% no-repeat padding-box;
+    opacity: 1;
+    color: white;
+
+}
+
+.header h1 {
+    margin-left: 20px;
+}
+
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+    top: 72px;
+    left: 514px;
+    width: 926px;
+    height: 60px;
+    background: #F4F9FF 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+
+.navbar .part1:nth-child(3) {
+    margin-right: 200px;
+}
+
+.navbar label {
+    font-weight: 1000;
+}
+
+
+
+.navbar2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.navbar2 .dot {
+    border: 1px solid black;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    display: inline-block;
+
+}
+
+
+.navbar2 .part2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.navbar2 .part2 p {
+    margin-left: 10px;
+}
+
+
+
+.body-container {
+    margin-top: 60px;
+    border: 1px solid black;
+    padding: 20px;
+    width: 926px;
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+
+
+
+
+/* address */
+.address {
+    margin-top: 10px;
+}
+
+.address .part3 {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    border: 2px solid black;
+    border-radius: 3%;
+    top: 732px;
+    left: 558px;
+    width: 198px;
+    height: 90px;
+    text-align: left;
+    font: normal normal normal 16px/22px Open Sans;
+    letter-spacing: 0.16px;
+    color: #3E3F40;
+    opacity: 1;
+}
+
+.address .part3 strong {
+    font-weight: 600;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.address .part3 label {
+    margin-top: 5px;
+    margin-left: 20px;
+}
+
+
+
+.footer {
+    position: absolute;
+}
+
+.footer .part4 {
+    bottom: 0;
+    right: 0;
+}
