@@ -1,11 +1,13 @@
-import './App.css';
+import "./App.css";
+import Register from "./components/register/Register";
+import Signin from "./components/signin/Signin";
+// import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-function App() {
+const App = () => {
   return (
     <>
-      <h1> Everything is Working</h1>
+    <Register/>
     </>
-  );
-}
+  )};
 
 export default App;
