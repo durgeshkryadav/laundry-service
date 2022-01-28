@@ -1,0 +1,35 @@
+.wrapper {}
+
+.wrapper .ui--sidebar {
+    background-color: #5861AE;
+    position: fixed;
+    top: -1.5px;
+    left: 0;
+    width: 57px;
+    height: 1000px;
+    margin-top: 90px;
+}
+
+.home--icon {
+    position: absolute;
+    left: 0;
+    padding-left: 15px;
+    padding-top: 22px;
+}
+
+.more--icon {
+    position: absolute;
+    left: 0;
+    padding-left: 15px;
+    padding-top: 74px;
+}
+
+.list--icon {
+    position: absolute;
+    left: 0;
+    padding-left: 15px;
+    margin-top: 124px;
+    background-color: white;
+    padding: 10px 10px;
+    width: 2.3rem;
+}

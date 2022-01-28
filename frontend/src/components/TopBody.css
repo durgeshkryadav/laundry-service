@@ -1,0 +1,40 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+.right1 {
+    flex-basis: 10%;
+}
+
+.right1:nth-child(1) {
+    flex-grow: 8;
+    margin-left: 40px;
+}
+
+.right1:nth-child(2) button {
+    margin-top: 20px;
+    left: 1059px;
+    width: 107px;
+    height: 32px;
+    border: 2px solid #5861AE;
+    border-radius: 4px;
+    opacity: 1;
+    background-color: white;
+    color: #5861AE;
+    font-weight: 600;
+}
+
+
+
+.right12 {
+    border: 0.05px solid black;
+    width: 200px;
+}
+
+
+.right1:nth-child(3) {
+    margin-top: 30px;
+}
