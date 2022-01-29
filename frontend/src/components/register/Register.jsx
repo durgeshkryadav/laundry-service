@@ -4,44 +4,41 @@ import Header from "../header/Header";
 import Copyright from "../copyright/Copyright";
 import Referal from "../referal/Referal";
 import Footer from "../footer/Footer";
-import { useState } from "react";
-import res from "express/lib/response";
-//import {useHistory} from 'react-router-dom'
+import { Link ,useNavigate} from "react-router-dom";
 const Register = () => {
-//const history = useHistory()
-const [user,setUser]=useState({
-  name:"", email:"",phone:"",address:"",state:"",district:"",pincode:"",password:""
-});
-let name,value;
-const handleInputs=(e)=>{
-  console.log(e)
-  name=e.target.name;
-  value=e.target.value
-  setUser({...user,[name]:value});
-}
-
+  const navigate = useNavigate();
+  
   const postData = async (elem) => {
-    
+
+    try{
+      console.log(elem.target.name.value,elem.target.email.value)
       elem.preventDefault();
-      const {name,email,phone,address,state,district,pincode,password}=user
-       const res=await fetch("/signup", {
-        method: "POST",
-        mode: "cors",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name,email,phone,address,state,district,pincode,password
-        })
-      });
-      const data=await res.json();
-      if(!data){
-        window.alert("invalid details")
-      }else{
-        window.alert("successful")
-        //history.push("/signin")
-      }
+    const res = await fetch("/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json,charset=UTF-8",
+      },
+      body: JSON.stringify({
+        name: elem.target.name.value,
+        email: elem.target.email.value,
+        phone: elem.target.phone.value,
+        state: elem.target.state.value,
+        district: elem.target.district.value,
+        address: elem.target.address.value,
+        pincode: elem.target.pincode.value,
+        password: elem.target.password.value
+      })
+    });
+    if (res.status === 200) {
+      console.log("user added successfully")
+    }
      
+   }catch(e){
+     alert("failed to add user",e)
+     console.log(e)
+   } 
+   navigate("/", { replace: true });
+    
   };
 
   return (
@@ -60,10 +57,11 @@ const handleInputs=(e)=>{
           <div className="already">
             <p>Already Have Account</p>
           </div>
-
-          <button className="signinb">
-            <p className="signint">Sign In</p>
-          </button>
+          <Link to="/">
+            <button className="signinb">
+              <p className="signint">Sign In</p>
+            </button>
+          </Link>
         </div>
 
         <div className="container2">
@@ -73,21 +71,49 @@ const handleInputs=(e)=>{
             </p>
           </div>
           <div>
-            <form method="POST"className="registerdata" >
+            <form method="POST" onSubmit={(elem)=>{postData(elem)}} className="registerdata">
               <div className="inputfield">
                 <div className="inputfield1">
-                  <input type="text" name="name" value={user.name} onChange={handleInputs} placeholder="Name" />
-                  <input type="text" name="phone" value={user.phone} onChange={handleInputs} placeholder="Phone" />
-                  <input type="text" name="district" value={user.district} onChange={handleInputs} placeholder="District" />
-                  <input type="text" name="number" value={user.number} onChange={handleInputs} placeholder="Pincode" />
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Name"
+                  />
+                  <input
+                    type="text"
+                    name="phone"
+                    placeholder="Phone"
+                  />
+                  <input
+                    type="text"
+                    name="district"
+                    placeholder="District"
+                  />
+                  <input
+                    type="text"
+                    name="number"
+                    placeholder="Pincode"
+                  />
                 </div>
                 <div className="inputfield2">
-                  <input type="text" name="email" value={user.email} onChange={handleInputs} placeholder="Email" />
-                  <input type="text" name="state" value={user.state} onChange={handleInputs} placeholder="State" />
-                  <input type="text" name="address" value={user.address} onChange={handleInputs} placeholder="Address" />
+                  <input
+                    type="text"
+                    name="email"
+                    placeholder="Email"
+                  />
+                  <input
+                    type="text"
+                    name="state"
+                    placeholder="State"
+                  />
+                  <input
+                    type="text"
+                    name="address"
+                    placeholder="Address"
+                  />
                   <input
                     type="password"
-                    name="password" value={user.password} onChange={handleInputs}
+                    name="password"
                     placeholder="password"
                   />
                 </div>
@@ -102,8 +128,7 @@ const handleInputs=(e)=>{
                 </div>
               </div>
               <div className="registerbutton">
-                
-                <button  onClick={postData}>Register</button>
+                <button >Register</button>
               </div>
             </form>
           </div>
