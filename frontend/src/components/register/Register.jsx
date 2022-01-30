@@ -11,13 +11,17 @@ const Register = () => {
   const postData = async (elem) => {
 
     try{
-      console.log(elem.target.name.value,elem.target.email.value)
       elem.preventDefault();
-    const res = await fetch("/signup", {
+    const res = await fetch("http://localhost:5000/signup", {
       method: "POST",
+      mode: 'cors', 
+      cache: 'no-cache', 
+      credentials: 'same-origin',
       headers: {
-        "Content-Type": "application/json,charset=UTF-8",
+      'Content-Type': 'application/json'
       },
+      redirect: 'follow',
+      referrerPolicy: 'no-referrer', 
       body: JSON.stringify({
         name: elem.target.name.value,
         email: elem.target.email.value,
@@ -34,8 +38,7 @@ const Register = () => {
     }
      
    }catch(e){
-     alert("failed to add user",e)
-     console.log(e)
+     alert(e)
    } 
    navigate("/", { replace: true });
     
@@ -71,7 +74,7 @@ const Register = () => {
             </p>
           </div>
           <div>
-            <form method="POST" onSubmit={(elem)=>{postData(elem)}} className="registerdata">
+            <form  onSubmit={(elem)=>{postData(elem)}} className="registerdata">
               <div className="inputfield">
                 <div className="inputfield1">
                   <input
@@ -97,7 +100,7 @@ const Register = () => {
                 </div>
                 <div className="inputfield2">
                   <input
-                    type="text"
+                    type="email"
                     name="email"
                     placeholder="Email"
                   />
@@ -128,7 +131,7 @@ const Register = () => {
                 </div>
               </div>
               <div className="registerbutton">
-                <button >Register</button>
+                <button type="submit">Register</button>
               </div>
             </form>
           </div>

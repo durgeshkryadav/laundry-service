@@ -1,23 +1,18 @@
 const express = require("express");
+const app=express();
+const bodyParser = require('body-parser');
 const User = require("../models/UserSchema");
 const bcrypt = require("bcrypt");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
+app.use(bodyParser());
 
 router.post("/signup", async function (req, res) {
   try {
     const { name, email, phone, address, district, state, pincode, password } =
       req.body;
     const hashedPassword = await bcrypt.hash(password, 12);
-     await User.create({
-      name,
-      email,
-      address,
-      phone,
-      state,
-      district,
-      pincode,
-      password: hashedPassword,
+     await User.create({name,email,address,phone,state,district,pincode,password: hashedPassword,
     });
     res.json({
       status: "success",
@@ -36,7 +31,7 @@ router.post("/signin", async (req, res) => {
     const { string, password } = req.body;
        const isEmail=string.includes("@");
        const query=isEmail ? {"email":string} : {"phone": parseInt(string)}
-    const user = await User.findOne({ query });
+    const user = await User.findOne(query);
     console.log(user)
     if (!user) {
       return res.json({
@@ -51,19 +46,20 @@ router.post("/signin", async (req, res) => {
         message: "Incorrect password",
       });
     }
+    const str=String(user._id);
     const token = jwt.sign(
       {
-        data: req.body,
+        data: str,
+        exp: Math.floor(Date.now() / 1000) + (60 * 60)
       },
       "SECRETKEYTRESDGHU"
     );
-    res.status(200).json({
+    res.json({
       status: "success",
       resToken: token,
     });
   } catch (err) {
-    console.log(err.message);
-    res.status(500).json({
+    res.json({
       status: "failed",
       message: err.message,
     });
